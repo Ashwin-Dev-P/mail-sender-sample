@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="text-center mt-5">Mail sender</h1>
+<div class="text-center col-xs-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 shadow-sm p-3">
+    <form method="POST" >
+        <div class="form-group my-1">
+            <label for="email">Recipient email</label>
+            <input type="email" id="email" name="recepientMail" class="form-control" required />
+        </div>
+        <div class="form-group my-1">
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" class="form-control"></textarea>
+        </div>
+        <div class="form-group my-1">
+            <label for="body">Body</label>
+            <textarea id="body" name="body" class="form-control"></textarea>
+        </div>
+        @{
+        
+            if( ViewBag.errorMessage != null ){
+                <div class="alert alert-danger text-center form-group my-1">
+                    @ViewBag.errorMessage
+                </div>
+            }
+            else if ( ViewBag.successMessage != null )
+            {
+                <div class="alert alert-success text-center form-group my-1">
+                    @ViewBag.successMessage
+                </div>
+            }
+
+        }
+
+        
+        <div class="form-group my-3">
+            <input type="submit" class="form-control btn btn-primary" />
+        </div>
+</form>
+</div>
